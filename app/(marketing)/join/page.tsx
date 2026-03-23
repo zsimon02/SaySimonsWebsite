@@ -1,13 +1,12 @@
 import type { Metadata } from "next";
 
-import { PageHero } from "@/components/marketing/page-hero";
-import { WaitlistForm } from "@/components/marketing/waitlist-form";
 import { Reveal } from "@/components/marketing/reveal";
+import { WaitlistForm } from "@/components/marketing/waitlist-form";
 
-const expectations = [
-  "Launch progress updates",
-  "Early access announcements",
-  "Occasional feedback invitations",
+const promises = [
+  "Early access when openings start",
+  "Clear launch updates",
+  "Occasional product feedback requests",
 ] as const;
 
 export const metadata: Metadata = {
@@ -16,55 +15,36 @@ export const metadata: Metadata = {
 
 export default function JoinPage() {
   return (
-    <>
-      <PageHero
-        eyebrow="Join"
-        title="Get early access to SaySimons."
-        description="We're building for people who want dating to feel more intentional, more understandable, and more human."
-        supporting={
-          <div className="grid gap-4 sm:grid-cols-3">
-            {expectations.map((item) => (
-              <div
-                key={item}
-                className="rounded-[1.6rem] border border-[#dbe5f0] bg-white/82 px-5 py-4 text-base font-medium text-foreground shadow-[0_16px_40px_-32px_rgba(79,111,149,0.32)]"
-              >
-                {item}
-              </div>
-            ))}
-          </div>
-        }
-      />
-
-      <section className="section-shell pb-20 pt-6">
-        <div className="grid gap-6 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
-          <Reveal>
-            <div className="space-y-4 rounded-[2rem] border border-[#dbe5f0] bg-white/84 p-6 shadow-[0_20px_48px_-38px_rgba(79,111,149,0.34)]">
-              <p className="text-sm font-semibold uppercase tracking-[0.16em] text-accent">
-                What to expect
+    <section className="section-shell pb-24 pt-20 sm:pt-24">
+      <div className="mx-auto grid max-w-5xl gap-10 lg:grid-cols-[0.88fr_1.12fr] lg:items-start lg:gap-14">
+        <Reveal>
+          <div className="space-y-6 pt-2">
+            <p className="eyebrow">Join</p>
+            <div className="space-y-4">
+              <h1 className="headline-display max-w-[10ch] text-balance text-[3.35rem] font-semibold leading-[0.94] tracking-tight text-foreground sm:text-[4.35rem]">
+                Join the waitlist.
+              </h1>
+              <p className="max-w-[34rem] text-base leading-7 text-muted-foreground sm:text-[1.02rem]">
+                SaySimons is being built for people who want dating to feel more
+                intentional, more understandable, and less ambiguous.
               </p>
-              <h2 className="headline-display text-4xl font-semibold text-foreground">
-                A thoughtful early community, not a mass-signup blast.
-              </h2>
-              <p className="text-base leading-7 text-muted-foreground">
-                Joining the waitlist helps us build with the right people in
-                mind. We&apos;ll use it to shape launch timing, early access, and
-                research with people who want something real.
-              </p>
-              <div className="rounded-[1.6rem] border border-[#ffe0c0] bg-[#fff5ea] p-5">
-                <p className="text-sm leading-7 text-muted-foreground">
-                  Right now, SaySimons is in the early build phase. That means
-                  the waitlist is both a launch list and a signal of who
-                  resonates most strongly with the product vision.
-                </p>
-              </div>
             </div>
-          </Reveal>
 
-          <Reveal>
-            <WaitlistForm />
-          </Reveal>
-        </div>
-      </section>
-    </>
+            <div className="space-y-4 border-t border-[rgba(128,149,173,0.18)] pt-6">
+              {promises.map((item) => (
+                <div key={item} className="flex items-center gap-3 text-sm text-foreground sm:text-base">
+                  <span className="size-2 rounded-full bg-accent" />
+                  <span>{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </Reveal>
+
+        <Reveal>
+          <WaitlistForm />
+        </Reveal>
+      </div>
+    </section>
   );
 }

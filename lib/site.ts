@@ -12,10 +12,8 @@ export const siteConfig = {
 
 export const navigationLinks = [
   { label: "Mission", href: "/mission" },
-  { label: "Product", href: "/product" },
   { label: "Founders", href: "/founders" },
   { label: "Join", href: "/join" },
-  { label: "Contact", href: "/contact" },
 ] as const;
 
 export const featureCards = [

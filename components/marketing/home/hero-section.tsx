@@ -1,25 +1,38 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
-import { PhoneMockup } from "@/components/marketing/phone-mockup";
 import { Button } from "@/components/ui/button";
+
+const heroHighlights = [
+  {
+    label: "Clearer profiles",
+    description: "Express who you actually are—so people understand you from the start.",
+  },
+  {
+    label: "Stronger conversations",
+    description: "Skip the small talk and build real momentum from the first message.",
+  },
+  {
+    label: "Real-world connection",
+    description: "Move naturally from matching to making plans that actually happen.",
+  },
+] as const;
 
 export function HeroSection() {
   return (
-    <section className="section-shell grid gap-14 pb-20 pt-16 sm:pt-24 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
-      <div className="max-w-2xl space-y-7">
+    <section className="section-shell grid gap-14 pb-24 pt-16 sm:pt-24 lg:grid-cols-[minmax(0,1.15fr)_minmax(18rem,0.85fr)] lg:items-start lg:gap-[4.5rem] lg:pb-28 lg:pt-28">
+      <div className="max-w-2xl space-y-8">
         <span className="eyebrow">Dating with more clarity</span>
-        <div className="space-y-6">
-          <h1 className="headline-display text-balance text-5xl font-semibold leading-none tracking-tight text-foreground sm:text-6xl lg:text-7xl">
+        <div className="space-y-5">
+          <h1 className="headline-display max-w-[20ch] text-balance text-[3.35rem] font-semibold leading-[0.94] tracking-tight text-foreground sm:text-6xl lg:text-[5.15rem]">
             Stop guessing. Start connecting.
           </h1>
-          <p className="max-w-xl text-lg leading-8 text-muted-foreground sm:text-xl">
-            A dating app designed to remove ambiguity and help you build real,
-            personality-driven connections.
+          <p className="max-w-xl text-lg leading-8 text-muted-foreground sm:text-[1.2rem]">
+            A dating app built to remove ambiguity, so you can focus on real connection.
           </p>
         </div>
 
-        <div className="flex flex-col gap-3 sm:flex-row">
+        <div className="flex flex-col gap-3 pt-2 sm:flex-row sm:items-center">
           <Button asChild size="lg">
             <Link href="/join">
               Join the Waitlist
@@ -30,22 +43,44 @@ export function HeroSection() {
             <Link href="#the-problem">Learn More</Link>
           </Button>
         </div>
-
-        <div className="grid gap-4 pt-4 text-sm text-muted-foreground sm:grid-cols-3">
-          <div className="rounded-[1.4rem] border border-[#dbe5f0] bg-white/80 px-4 py-4 shadow-[0_16px_40px_-30px_rgba(79,111,149,0.38)]">
-            Better profiles
-          </div>
-          <div className="rounded-[1.4rem] border border-[#dbe5f0] bg-[#f1f7ff] px-4 py-4 shadow-[0_16px_40px_-30px_rgba(79,111,149,0.38)]">
-            Better conversations
-          </div>
-          <div className="rounded-[1.4rem] border border-[#ffe0c0] bg-[#fff5ea] px-4 py-4 shadow-[0_16px_40px_-30px_rgba(149,103,52,0.28)]">
-            Better real-world dates
-          </div>
-        </div>
       </div>
 
-      <div className="lg:justify-self-end">
-        <PhoneMockup />
+      <div className="relative lg:pt-8">
+        <div className="absolute inset-x-8 top-12 h-40 rounded-full bg-[radial-gradient(circle,rgba(239,139,58,0.12),transparent_70%)] blur-3xl" />
+        <div className="relative mx-auto max-w-md space-y-10 lg:ml-auto">
+          <div className="space-y-4 border-l border-[rgba(128,149,173,0.22)] pl-6">
+            <p className="text-[0.72rem] font-semibold uppercase tracking-[0.22em] text-muted-foreground">
+              From profile to first date
+            </p>
+
+            <p className="headline-display max-w-[14ch] text-3xl font-semibold leading-tight text-foreground sm:text-[2.5rem]">
+              A clearer path to something real.
+            </p>
+
+            <p className="max-w-sm text-base leading-7 text-muted-foreground">
+              SaySimons brings clarity to how you present yourself, connect with others, and move from conversation into real life.
+            </p>
+          </div>
+
+          <div className="divide-y divide-[rgba(128,149,173,0.18)] border-y border-[rgba(128,149,173,0.18)]">
+            {heroHighlights.map((item, index) => (
+              <div
+                key={item.label}
+                className="grid gap-3 py-5 sm:grid-cols-[auto_1fr] sm:gap-5"
+              >
+                <span className="text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+                  0{index + 1}
+                </span>
+                <div className="space-y-1.5">
+                  <h3 className="text-lg font-semibold text-foreground">{item.label}</h3>
+                  <p className="text-sm leading-6 text-muted-foreground sm:text-[0.96rem]">
+                    {item.description}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );

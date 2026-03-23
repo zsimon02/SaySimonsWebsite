@@ -4,7 +4,7 @@ import { testimonials } from "@/lib/site";
 
 export function TestimonialsSection() {
   return (
-    <section className="section-shell py-20">
+    <section className="section-shell section-rule py-24 sm:py-28">
       <Reveal>
         <SectionHeading
           eyebrow="Early impressions"
@@ -13,14 +13,14 @@ export function TestimonialsSection() {
         />
       </Reveal>
 
-      <div className="mt-10 grid gap-4 lg:grid-cols-3">
+      <div className="mt-12 grid gap-6 lg:grid-cols-3">
         {testimonials.map((testimonial) => (
           <Reveal key={testimonial.quote} className="h-full">
-            <div className="flex h-full flex-col justify-between rounded-[2rem] border border-[#dbe5f0] bg-[linear-gradient(180deg,rgba(255,255,255,0.84),rgba(241,247,255,0.82))] p-6 shadow-[0_18px_40px_-34px_rgba(79,111,149,0.35)]">
-              <p className="headline-display text-3xl leading-tight text-foreground">
+            <div className="flex h-full flex-col justify-between border-t border-[rgba(128,149,173,0.22)] pt-6">
+              <p className="headline-display text-[2rem] leading-[1.18] text-foreground">
                 &ldquo;{testimonial.quote}&rdquo;
               </p>
-              <p className="mt-8 text-sm uppercase tracking-[0.16em] text-muted-foreground">
+              <p className="mt-8 text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-muted-foreground">
                 {testimonial.attribution}
               </p>
             </div>

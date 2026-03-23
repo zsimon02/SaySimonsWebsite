@@ -10,26 +10,31 @@ const painPoints = [
 
 export function ProblemSection() {
   return (
-    <section id="the-problem" className="section-shell py-20">
-      <Reveal>
-        <div className="grid gap-10 rounded-[2.25rem] border border-[#dbe5f0] bg-[linear-gradient(180deg,rgba(255,255,255,0.82),rgba(239,246,255,0.7))] px-6 py-8 shadow-[0_30px_80px_-42px_rgba(79,111,149,0.3)] sm:px-10 sm:py-10 lg:grid-cols-[0.9fr_1.1fr]">
+    <section id="the-problem" className="section-shell section-rule py-24 sm:py-28">
+      <div className="grid gap-12 lg:grid-cols-[0.92fr_1.08fr] lg:gap-14">
+        <Reveal>
           <SectionHeading
             eyebrow="Why dating feels broken"
             title="Most dating apps are built for engagement, not understanding."
-            description="They leave people guessing about interest, intent, and compatibility. The result is swipe fatigue, stalled chats, and a lot of confusion where connection should be."
+            description="They leave people guessing about interest, intent, and compatibility. The result is swipe fatigue, stalled chats, and a lot of confusion."
           />
-          <div className="grid gap-4 sm:grid-cols-2">
-            {painPoints.map((point) => (
-              <div
-                key={point}
-                className="rounded-[1.75rem] border border-[#d9e3ef] bg-white/82 p-5 text-base leading-7 text-muted-foreground"
-              >
-                {point}
+        </Reveal>
+
+        <div className="divide-y divide-[rgba(128,149,173,0.18)] border-y border-[rgba(128,149,173,0.18)]">
+          {painPoints.map((point, index) => (
+            <Reveal key={point}>
+              <div className="grid gap-3 py-5 sm:grid-cols-[auto_1fr] sm:gap-5">
+                <span className="text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+                  0{index + 1}
+                </span>
+                <p className="max-w-xl text-base leading-7 text-muted-foreground sm:text-[1.02rem]">
+                  {point}
+                </p>
               </div>
-            ))}
-          </div>
+            </Reveal>
+          ))}
         </div>
-      </Reveal>
+      </div>
     </section>
   );
 }

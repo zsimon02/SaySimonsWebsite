@@ -4,8 +4,8 @@ import { trustPillars } from "@/lib/site";
 
 export function TrustSection() {
   return (
-    <section className="section-shell py-20">
-      <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
+    <section className="section-shell section-rule py-24 sm:py-28">
+      <div className="grid gap-12 lg:grid-cols-[0.88fr_1.12fr] lg:items-start lg:gap-14">
         <Reveal>
           <SectionHeading
             eyebrow="Built with psychology and AI"
@@ -14,16 +14,19 @@ export function TrustSection() {
           />
         </Reveal>
 
-        <div className="grid gap-4">
-          {trustPillars.map((pillar) => (
+        <div className="divide-y divide-[rgba(128,149,173,0.18)] border-y border-[rgba(128,149,173,0.18)]">
+          {trustPillars.map((pillar, index) => (
             <Reveal key={pillar.title}>
-              <div className="rounded-[1.9rem] border border-[#dbe5f0] bg-white/80 px-6 py-6 shadow-[0_18px_40px_-34px_rgba(79,111,149,0.35)]">
-                <h3 className="text-xl font-semibold text-foreground">
-                  {pillar.title}
-                </h3>
-                <p className="mt-3 text-base leading-7 text-muted-foreground">
-                  {pillar.description}
-                </p>
+              <div className="grid gap-3 py-6 sm:grid-cols-[auto_1fr] sm:gap-5">
+                <span className="text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+                  0{index + 1}
+                </span>
+                <div className="space-y-2">
+                  <h3 className="text-xl font-semibold text-foreground">{pillar.title}</h3>
+                  <p className="max-w-xl text-base leading-7 text-muted-foreground sm:text-[1.02rem]">
+                    {pillar.description}
+                  </p>
+                </div>
               </div>
             </Reveal>
           ))}

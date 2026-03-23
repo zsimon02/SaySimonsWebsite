@@ -16,14 +16,11 @@ import { navigationLinks } from "@/lib/site";
 
 export function SiteHeader() {
   return (
-    <header className="sticky top-0 z-40 border-b border-[#dbe4ef] bg-[rgba(250,252,255,0.8)] backdrop-blur-xl">
+    <header className="sticky top-0 z-40 border-b border-[rgba(128,149,173,0.14)] bg-[rgba(250,252,255,0.78)] backdrop-blur-xl">
       <div className="section-shell flex h-[4.5rem] items-center justify-between gap-6">
         <Link href="/" className="group flex items-center gap-3">
           <span className="headline-display text-2xl font-semibold tracking-tight text-foreground">
             SaySimons
-          </span>
-          <span className="hidden rounded-full border border-[#d6e1ee] bg-white/70 px-2.5 py-1 text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-muted-foreground transition-colors group-hover:border-[#ffd8b5] group-hover:text-accent sm:inline-flex">
-            Waitlist Open
           </span>
         </Link>
 
@@ -70,7 +67,7 @@ export function SiteHeader() {
                   <Link
                     key={item.href}
                     href={item.href}
-                    className="rounded-2xl border border-[#d6e1ee] bg-[#f9fbff] px-4 py-3 text-base font-semibold text-foreground hover:border-[#ffd8b5] hover:bg-[#fff3e6]"
+                    className="border-b border-[rgba(128,149,173,0.16)] px-1 py-3 text-base font-semibold text-foreground"
                   >
                     {item.label}
                   </Link>

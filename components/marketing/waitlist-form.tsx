@@ -25,6 +25,7 @@ export function WaitlistForm() {
 
       const payload = {
         firstName: String(formData.get("firstName") ?? ""),
+        lastName: String(formData.get("lastName") ?? ""),
         email: String(formData.get("email") ?? ""),
       };
 
@@ -72,36 +73,57 @@ export function WaitlistForm() {
   }
 
   return (
-    <div className="glass-panel rounded-[2rem] p-6 sm:p-8">
-      <div className="space-y-2">
+    <div className="rounded-[2rem] border border-[#dbe5f0] bg-white/88 p-6 shadow-[0_22px_54px_-40px_rgba(79,111,149,0.28)] sm:p-8">
+      <div className="space-y-3">
         <p className="text-sm font-semibold uppercase tracking-[0.16em] text-accent">
           Join the waitlist
         </p>
-        <h2 className="headline-display text-4xl font-semibold text-foreground">
-          Be first to hear when SaySimons opens up.
+        <h2 className="headline-display text-[2.2rem] font-semibold leading-[1.02] text-foreground sm:text-4xl">
+          Add your name.
         </h2>
-        <p className="text-base leading-7 text-muted-foreground">
-          We&apos;ll use this list for launch updates, early access, and occasional
-          product feedback invitations.
+        <p className="max-w-[34rem] text-sm leading-6 text-muted-foreground sm:text-base">
+          We&apos;ll send launch updates, early access details, and the occasional
+          product feedback note.
         </p>
       </div>
 
       <form ref={formRef} action={handleSubmit} className="mt-8 space-y-5">
-        <div className="space-y-2">
-          <Label htmlFor="firstName">First name</Label>
-          <Input
-            id="firstName"
-            name="firstName"
-            placeholder="Hayley"
-            autoComplete="given-name"
-            aria-invalid={Boolean(fieldErrors.firstName)}
-            aria-describedby={fieldErrors.firstName ? "firstName-error" : undefined}
-          />
-          {fieldErrors.firstName ? (
-            <p id="firstName-error" className="text-sm text-[#d87522]">
-              {fieldErrors.firstName}
-            </p>
-          ) : null}
+        <div className="grid gap-5 sm:grid-cols-2">
+          <div className="space-y-2">
+            <Label htmlFor="firstName">First name</Label>
+            <Input
+              id="firstName"
+              name="firstName"
+              placeholder="Hayley"
+              autoComplete="given-name"
+              required
+              aria-invalid={Boolean(fieldErrors.firstName)}
+              aria-describedby={fieldErrors.firstName ? "firstName-error" : undefined}
+            />
+            {fieldErrors.firstName ? (
+              <p id="firstName-error" className="text-sm text-[#d87522]">
+                {fieldErrors.firstName}
+              </p>
+            ) : null}
+          </div>
+
+          <div className="space-y-2">
+            <Label htmlFor="lastName">Last name</Label>
+            <Input
+              id="lastName"
+              name="lastName"
+              placeholder="Simon"
+              autoComplete="family-name"
+              required
+              aria-invalid={Boolean(fieldErrors.lastName)}
+              aria-describedby={fieldErrors.lastName ? "lastName-error" : undefined}
+            />
+            {fieldErrors.lastName ? (
+              <p id="lastName-error" className="text-sm text-[#d87522]">
+                {fieldErrors.lastName}
+              </p>
+            ) : null}
+          </div>
         </div>
 
         <div className="space-y-2">
@@ -112,6 +134,7 @@ export function WaitlistForm() {
             type="email"
             placeholder="you@example.com"
             autoComplete="email"
+            required
             aria-invalid={Boolean(fieldErrors.email)}
             aria-describedby={fieldErrors.email ? "email-error" : undefined}
           />
@@ -122,16 +145,21 @@ export function WaitlistForm() {
           ) : null}
         </div>
 
-        <Button type="submit" size="lg" className="w-full" disabled={isPending}>
-          {isPending ? (
-            <>
-              <LoaderCircle className="size-4 animate-spin" />
-              Joining waitlist...
-            </>
-          ) : (
-            "Join the Waitlist"
-          )}
-        </Button>
+        <div className="space-y-3 pt-1">
+          <Button type="submit" size="lg" className="w-full" disabled={isPending}>
+            {isPending ? (
+              <>
+                <LoaderCircle className="size-4 animate-spin" />
+                Joining waitlist...
+              </>
+            ) : (
+              "Join the Waitlist"
+            )}
+          </Button>
+          <p className="text-xs leading-5 text-muted-foreground">
+            No spam. Just product updates and early access when it&apos;s ready.
+          </p>
+        </div>
       </form>
 
       {formState.type === "success" ? (

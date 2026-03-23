@@ -13,6 +13,15 @@ export const waitlistSchema = z.object({
       /^[\p{L}' -]+$/u,
       "Use letters, spaces, apostrophes, or hyphens only.",
     ),
+  lastName: z
+    .string()
+    .trim()
+    .min(2, "Please enter your last name.")
+    .max(50, "Last name must be 50 characters or fewer.")
+    .regex(
+      /^[\p{L}' -]+$/u,
+      "Use letters, spaces, apostrophes, or hyphens only.",
+    ),
   email: z
     .string()
     .trim()
@@ -55,6 +64,7 @@ export async function storeWaitlistEntry(input: WaitlistInput) {
   const newEntry: WaitlistEntry = {
     id: crypto.randomUUID(),
     firstName: input.firstName,
+    lastName: input.lastName,
     email: input.email,
     joinedAt: new Date().toISOString(),
     source: "website",
