@@ -1,0 +1,197 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f4f7fb;
+  --foreground: #24364a;
+  --muted: #e8eef5;
+  --muted-foreground: #61758b;
+  --card: rgba(255, 255, 255, 0.84);
+  --card-foreground: #24364a;
+  --border: rgba(149, 168, 192, 0.28);
+  --input: rgba(255, 255, 255, 0.9);
+  --ring: rgba(106, 159, 226, 0.42);
+  --accent: #ef8b3a;
+  --accent-foreground: #fffaf5;
+  --accent-soft: rgba(239, 139, 58, 0.14);
+  --success: #2f855a;
+  --warning: #ef8b3a;
+  --shadow-color: rgba(76, 103, 138, 0.18);
+  --radius: 1.5rem;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --font-sans: var(--font-manrope);
+  --font-display: var(--font-fraunces);
+  --radius-sm: calc(var(--radius) - 0.75rem);
+  --radius-md: calc(var(--radius) - 0.35rem);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 0.75rem);
+}
+
+* {
+  border-color: var(--border);
+}
+
+html {
+  min-height: 100%;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-manrope), sans-serif;
+  background-image:
+    radial-gradient(circle at top, rgba(126, 176, 235, 0.22), transparent 34%),
+    radial-gradient(circle at 82% 14%, rgba(239, 139, 58, 0.14), transparent 24%),
+    linear-gradient(180deg, #fbfdff 0%, #f4f7fb 42%, #edf3fa 100%);
+  text-rendering: optimizeLegibility;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(rgba(142, 164, 192, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(142, 164, 192, 0.08) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: radial-gradient(circle at center, black 30%, transparent 78%);
+  opacity: 0.32;
+}
+
+::selection {
+  background: rgba(239, 139, 58, 0.24);
+  color: var(--foreground);
+}
+
+a,
+button,
+input,
+textarea {
+  transition:
+    color 160ms ease,
+    background-color 160ms ease,
+    border-color 160ms ease,
+    transform 160ms ease,
+    opacity 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.site-shell {
+  position: relative;
+  isolation: isolate;
+}
+
+.section-shell {
+  width: min(100% - 2rem, 72rem);
+  margin-inline: auto;
+}
+
+.glass-panel {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(241, 247, 255, 0.84));
+  border: 1px solid rgba(149, 168, 192, 0.24);
+  box-shadow:
+    0 32px 80px -36px var(--shadow-color),
+    inset 0 1px 0 rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(18px);
+}
+
+.headline-display {
+  font-family: var(--font-fraunces), serif;
+  font-variation-settings: "SOFT" 80, "WONK" 0;
+  letter-spacing: -0.04em;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 999px;
+  border: 1px solid rgba(149, 168, 192, 0.26);
+  background: rgba(232, 241, 252, 0.78);
+  padding: 0.45rem 0.9rem;
+  color: #597a9d;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.surface-border {
+  border: 1px solid var(--border);
+}
+
+.page-glow {
+  position: absolute;
+  width: 20rem;
+  height: 20rem;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(126, 176, 235, 0.24), transparent 65%);
+  filter: blur(24px);
+  opacity: 0.9;
+  z-index: -1;
+}
+
+.phone-shadow {
+  box-shadow:
+    0 36px 90px -46px rgba(79, 111, 149, 0.3),
+    0 0 0 1px rgba(160, 180, 206, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.92);
+}
+
+.animate-in-view {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 600ms ease,
+    transform 600ms ease;
+}
+
+.animate-in-view.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes accordion-down {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+  }
+}
+
+@keyframes accordion-up {
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+  to {
+    height: 0;
+  }
+}
+
+.data-\[state\=open\]\:animate-accordion-down[data-state="open"] {
+  animation: accordion-down 220ms ease-out;
+}
+
+.data-\[state\=closed\]\:animate-accordion-up[data-state="closed"] {
+  animation: accordion-up 180ms ease-out;
+}
