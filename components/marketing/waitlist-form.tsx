@@ -95,7 +95,7 @@ export function WaitlistForm() {
             <Input
               id="firstName"
               name="firstName"
-              placeholder="Hayley"
+              placeholder="First Name"
               autoComplete="given-name"
               required
               aria-invalid={Boolean(fieldErrors.firstName)}
@@ -113,7 +113,7 @@ export function WaitlistForm() {
             <Input
               id="lastName"
               name="lastName"
-              placeholder="Simon"
+              placeholder="Last Name"
               autoComplete="family-name"
               required
               aria-invalid={Boolean(fieldErrors.lastName)}
