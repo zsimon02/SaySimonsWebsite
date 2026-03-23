@@ -20,7 +20,7 @@ const heroHighlights = [
 
 export function HeroSection() {
   return (
-    <section className="section-shell grid gap-14 pb-24 pt-16 sm:pt-24 lg:grid-cols-[minmax(0,1.15fr)_minmax(18rem,0.85fr)] lg:items-start lg:gap-[4.5rem] lg:pb-28 lg:pt-28">
+    <section className="section-shell grid gap-14 pb-24 pt-16 sm:pt-24 lg:grid-cols-[minmax(0,1.15fr)_minmax(18rem,0.85fr)] lg:items-center lg:gap-[4.5rem] lg:pb-28 lg:pt-28">
       <div className="max-w-2xl space-y-8">
         <span className="eyebrow">Dating with more clarity</span>
         <div className="space-y-5">
@@ -45,10 +45,14 @@ export function HeroSection() {
         </div>
       </div>
 
-      <div className="relative lg:pt-8">
+      <div className="relative">
         <div className="absolute inset-x-8 top-12 h-40 rounded-full bg-[radial-gradient(circle,rgba(239,139,58,0.12),transparent_70%)] blur-3xl" />
-        <div className="relative mx-auto max-w-md space-y-10 lg:ml-auto">
-          <div className="space-y-4 border-l border-[rgba(128,149,173,0.22)] pl-6">
+        <div className="relative mx-auto max-w-md space-y-10 pl-6 lg:ml-auto">
+          <span
+            aria-hidden="true"
+            className="absolute bottom-0 left-0 top-0 w-px bg-[rgba(128,149,173,0.22)]"
+          />
+          <div className="space-y-4">
             <p className="text-[0.72rem] font-semibold uppercase tracking-[0.22em] text-muted-foreground">
               From profile to first date
             </p>

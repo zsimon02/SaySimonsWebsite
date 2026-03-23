@@ -96,6 +96,29 @@ textarea {
   isolation: isolate;
 }
 
+.home-gradient-flow {
+  position: relative;
+  overflow: clip;
+  background-image:
+    radial-gradient(circle at top, rgba(126, 176, 235, 0.14), transparent 34%),
+    radial-gradient(circle at 88% 14%, rgba(239, 139, 58, 0.08), transparent 22%),
+    linear-gradient(180deg, #fcfdff 0%, #f6f8fb 44%, #f1f5fa 100%);
+}
+
+.home-gradient-flow::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 18% 0%, rgba(255, 255, 255, 0.62), transparent 38%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.32) 0%, rgba(255, 255, 255, 0) 30%);
+}
+
+.home-gradient-flow > * {
+  position: relative;
+}
+
 .section-shell {
   width: min(100% - 2rem, 70rem);
   margin-inline: auto;
@@ -139,7 +162,7 @@ textarea {
 }
 
 .section-rule {
-  border-top: 1px solid rgba(128, 149, 173, 0.18);
+  border-top: none;
 }
 
 .page-glow {

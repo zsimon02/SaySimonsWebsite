@@ -16,7 +16,7 @@ import { navigationLinks } from "@/lib/site";
 
 export function SiteHeader() {
   return (
-    <header className="sticky top-0 z-40 border-b border-[rgba(128,149,173,0.14)] bg-[rgba(250,252,255,0.78)] backdrop-blur-xl">
+    <header className="sticky top-0 z-40 bg-[linear-gradient(180deg,rgba(250,252,255,0.84),rgba(250,252,255,0.56)_65%,rgba(250,252,255,0))] backdrop-blur-lg">
       <div className="section-shell flex h-[4.5rem] items-center justify-between gap-6">
         <Link href="/" className="group flex items-center gap-3">
           <span className="headline-display text-2xl font-semibold tracking-tight text-foreground">

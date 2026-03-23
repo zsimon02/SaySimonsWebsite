@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useState, useTransition } from "react";
+import Link from "next/link";
 import { CheckCircle2, LoaderCircle, MailWarning } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -157,7 +158,22 @@ export function WaitlistForm() {
             )}
           </Button>
           <p className="text-xs leading-5 text-muted-foreground">
-            No spam. Just product updates and early access when it&apos;s ready.
+            By joining, you agree to our{" "}
+            <Link
+              href="/terms"
+              className="underline decoration-foreground/30 underline-offset-4 hover:text-foreground"
+            >
+              Terms of Service
+            </Link>{" "}
+            and acknowledge our{" "}
+            <Link
+              href="/privacy"
+              className="underline decoration-foreground/30 underline-offset-4 hover:text-foreground"
+            >
+              Privacy Policy
+            </Link>
+            . We&apos;ll only use your information for waitlist and launch
+            communications unless we tell you otherwise.
           </p>
         </div>
       </form>
