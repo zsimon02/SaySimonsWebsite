@@ -116,18 +116,6 @@ export default function TermsPage() {
         eyebrow="Terms of Service"
         title="Terms of Service"
         description={`Last updated ${lastUpdated}. These terms govern use of the SaySimons website, waitlist, and related pre-launch communications.`}
-        supporting={
-          <div className="rounded-[2rem] border border-[#dbe5f0] bg-white/88 p-6 shadow-[0_22px_54px_-40px_rgba(79,111,149,0.28)] sm:p-8">
-            <p className="text-sm font-semibold uppercase tracking-[0.16em] text-accent">
-              Summary
-            </p>
-            <p className="mt-3 text-base leading-7 text-muted-foreground">
-              These terms cover lawful use of the public site, waitlist
-              submissions, ownership of site content, and the basic liability
-              and risk rules for a pre-launch product.
-            </p>
-          </div>
-        }
       />
 
       <section className="section-shell pb-20 pt-6">

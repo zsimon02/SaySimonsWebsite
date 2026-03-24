@@ -113,18 +113,6 @@ export default function PrivacyPage() {
         eyebrow="Privacy Policy"
         title="Privacy Policy"
         description={`Last updated ${lastUpdated}. This policy applies to the SaySimons website, waitlist, and related pre-launch communications.`}
-        supporting={
-          <div className="rounded-[2rem] border border-[#dbe5f0] bg-white/88 p-6 shadow-[0_22px_54px_-40px_rgba(79,111,149,0.28)] sm:p-8">
-            <p className="text-sm font-semibold uppercase tracking-[0.16em] text-accent">
-              Summary
-            </p>
-            <p className="mt-3 text-base leading-7 text-muted-foreground">
-              SaySimons currently collects contact details through its waitlist
-              and uses that information to manage signups, send launch updates,
-              respond to inquiries, and operate the site responsibly.
-            </p>
-          </div>
-        }
       />
 
       <section className="section-shell pb-20 pt-6">
