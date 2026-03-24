@@ -13,6 +13,7 @@ export const siteConfig = {
 export const navigationLinks = [
   { label: "Mission", href: "/mission" },
   { label: "Founders", href: "/founders" },
+  { label: "FAQ", href: "/faq" },
   { label: "Join", href: "/join" },
 ] as const;
 
