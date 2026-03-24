@@ -34,7 +34,7 @@ export const metadata: Metadata = {
 
 export default function MissionPage() {
   return (
-    <>
+    <div className="mission-gradient-flow">
       <PageHero
         eyebrow="Mission"
         title="Why SaySimons exists."
@@ -86,6 +86,6 @@ export default function MissionPage() {
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }
