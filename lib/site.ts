@@ -110,7 +110,7 @@ export const founders = [
   {
     name: "Hayley Simon, PhD",
     role: "Co-Founder",
-    bio: "Background in psychology and human behavior. Focused on relationships, communication, and understanding how people connect.",
+    bio: "Hayley Simon is a clinical psychologist and behavioral lead behind SaySimons, bringing a research-driven understanding of how people communicate, connect, and build relationships. She currently works in private practice, where she focuses on helping individuals better understand their emotional patterns, navigate relationships, and communicate with more clarity and intention.\n\nThe idea for SaySimons was shaped by a question that continued to surface in her work. After watching her brother struggle with dating apps that felt difficult to interpret, Hayley began to recognize a broader pattern. Many people weren’t struggling with connection itself, they were struggling with how little structure existed around expressing interest, reading intent, and understanding one another. What should feel intuitive often turned into guesswork.\n\nHayley earned her Ph.D. in School Psychology from Fordham University, where her research focused on social dynamics, communication patterns, and the ways digital environments influence relationships. At SaySimons, she leads the behavioral design of the product, ensuring that psychological insight is translated into an experience that feels grounded, natural, and genuinely useful.",
     emphasis: "Head of Psycology",
     imageSrc: "/images/founders/hayley.jpeg",
   },
