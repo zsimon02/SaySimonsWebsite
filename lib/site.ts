@@ -110,13 +110,15 @@ export const founders = [
     name: "Hayley Simon, PhD",
     role: "Co-Founder",
     bio: "Background in psychology and human behavior. Focused on relationships, communication, and understanding how people connect.",
-    emphasis: "Behavioral insight",
+    emphasis: "Head of Psycology",
+    imageSrc: "/images/founders/hayley.jpeg",
   },
   {
-    name: "Zach Simon",
+    name: "Zachary Simon",
     role: "Co-Founder",
-    bio: "AI Engineer focused on building intelligent systems that solve real human problems.",
-    emphasis: "Technical execution",
+    bio: "Zachary Simon is the co-founder and technical lead behind SaySimons, a personality-driven dating platform. With a background in building data-driven systems and automation tools, his work has consistently centered on solving complex, real-world problems through thoughtful, practical technology.\n\nThe idea for SaySimons began with a simple observation that didn’t sit right. After watching his brother navigate dating apps filled with vague profiles and stalled conversations, Zachary noticed how online dating has become so impersonal. People were left guessing about interest, intent, and compatibility, and that ambiguity had become normalized. Rather than accept it, he set out to build a product that made those signals easier to understand.\n\nZachary graduated with honors from Colgate University with a bachelor’s degree in computer science, where he built a strong foundation in systems and software development. At SaySimons, he now leads both product and engineering, shaping an experience that turns behavioral insight into something structured, intuitive, and actually useful.\n\nHe is currently pursuing a Master's of Science in Artificial Intelligence at the University of Texas at Austin, where his focus is on how intelligent systems can better help people.",
+    emphasis: "Head of Technology",
+    imageSrc: "/images/founders/zach.jpeg",
   },
 ] as const;
 
@@ -124,31 +126,76 @@ export const faqItems = [
   {
     question: "What is SaySimons?",
     answer:
-      "SaySimons is a personality-driven dating app built to remove ambiguity and help people build real connections with more clarity and intention.",
+      "SaySimons is a dating platform designed to make people easier to understand. It focuses on surfacing intent, personality, and compatibility earlier so conversations start with substance instead of guesswork.",
   },
   {
-    question: "How is SaySimons different from other dating apps?",
+    question: "How is it different from other dating apps?",
     answer:
-      "Most dating apps are built around swiping, shallow profiles, and engagement loops. SaySimons is focused on understanding, compatibility, and helping conversations move somewhere real.",
+      "Most apps optimize for browsing. SaySimons is designed to reduce ambiguity. Profiles are more expressive, signals are clearer, and interactions are structured to help conversations actually go somewhere.",
   },
   {
-    question: "Is SaySimons available now?",
+    question: "What does 'clarity' actually mean in the app?",
     answer:
-      "Not yet. We’re currently building the product and using the waitlist to shape early access with people who want a more intentional dating experience.",
+      "Clarity means you’re not left guessing. You get better insight into how someone communicates, what they’re looking for, and how they engage before and during conversation.",
   },
   {
-    question: "How does the waitlist work?",
+    question: "Will this feel slower than other apps?",
     answer:
-      "Joining the waitlist lets us keep you updated on launch progress, early access opportunities, and research or feedback moments as the product develops.",
+      "It’s more intentional, not slower. The goal is fewer, better interactions instead of endless scrolling and dead-end conversations.",
+  },
+  {
+    question: "Is SaySimons focused on serious relationships only?",
+    answer:
+      "It’s built for people who value intention and honesty. That can lead to serious relationships, but the core focus is on better interactions, not forcing a specific outcome.",
+  },
+  {
+    question: "How does matching work?",
+    answer:
+      "Matching is based on more than surface-level attraction. It considers how people communicate, what they value, and how compatible their intentions are.",
+  },
+  {
+    question: "What happens after a match?",
+    answer:
+      "The app guides the early interaction so conversations don’t stall. Instead of starting from nothing, you begin with context that makes it easier to connect naturally.",
   },
   {
     question: "Does SaySimons use AI?",
     answer:
-      "Yes, but carefully. We use AI to create clarity and insight, not to replace authentic conversation or speak for users.",
+      "Yes, but only to support understanding. It helps surface patterns and insights, not generate messages or replace your voice.",
   },
   {
-    question: "Is SaySimons for serious dating only?",
+    question: "Will AI ever speak for me or write my messages?",
     answer:
-      "It’s for people who are intentional and want something real. That does not mean rigid or formal. It means the product is designed for clarity, honesty, and meaningful connection.",
+      "No. The product is built around authentic communication. AI is used to guide, not to impersonate.",
+  },
+  {
+    question: "How are profiles different?",
+    answer:
+      "Profiles are designed to make people more legible. Instead of just photos and short prompts, they highlight lifestyle, communication style, and compatibility signals.",
+  },
+  {
+    question: "Is there a swipe feature?",
+    answer:
+      "No traditional swipe loop. The experience is structured to prioritize thoughtful discovery over rapid, low-signal decisions.",
+  },
+  {
+    question: "How does the waitlist work?",
+    answer:
+      "The waitlist helps shape early access. You’ll get updates, opportunities to test features, and a chance to influence how the product evolves.",
+  },
+  {
+    question: "When will the app launch?",
+    answer:
+      "We’re currently building and refining the experience. Early access will roll out in stages to ensure quality from the start.",
+  },
+  {
+    question: "Who is SaySimons for?",
+    answer:
+      "People who are tired of ambiguity in dating and want a clearer, more thoughtful way to meet someone.",
+  },
+  {
+    question: "What problem are you actually solving?",
+    answer:
+      "Most dating apps leave people guessing about interest, intent, and compatibility. SaySimons is built to remove that guesswork and make interactions more meaningful from the start.",
   },
 ] as const;

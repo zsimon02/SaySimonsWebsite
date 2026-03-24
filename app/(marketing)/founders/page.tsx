@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 
 import { PageHero } from "@/components/marketing/page-hero";
 import { Reveal } from "@/components/marketing/reveal";
@@ -29,13 +30,28 @@ export default function FoundersPage() {
                 <p className="text-sm font-semibold uppercase tracking-[0.16em] text-accent">
                   {founder.emphasis}
                 </p>
-                <h2 className="headline-display mt-4 text-4xl font-semibold text-foreground">
-                  {founder.name}
-                </h2>
-                <p className="mt-2 text-base font-medium text-foreground/80">
-                  {founder.role}
-                </p>
-                <p className="mt-5 text-base leading-7 text-muted-foreground">
+                <div className="mt-4 flex items-center gap-4">
+                  <div className="relative size-16 overflow-hidden rounded-full border border-[#dbe5f0] bg-[linear-gradient(135deg,#eef4fa,#dbe7f3)] shadow-[0_14px_34px_-24px_rgba(79,111,149,0.35)]">
+                    {founder.imageSrc ? (
+                      <Image
+                        src={founder.imageSrc}
+                        alt={`${founder.name} headshot`}
+                        fill
+                        className="object-cover"
+                        sizes="64px"
+                      />
+                    ) : null}
+                  </div>
+                  <div>
+                    <h2 className="headline-display text-4xl font-semibold text-foreground">
+                      {founder.name}
+                    </h2>
+                    <p className="mt-2 text-base font-medium text-foreground/80">
+                      {founder.role}
+                    </p>
+                  </div>
+                </div>
+                <p className="mt-5 whitespace-pre-line text-base leading-7 text-muted-foreground">
                   {founder.bio}
                 </p>
               </div>

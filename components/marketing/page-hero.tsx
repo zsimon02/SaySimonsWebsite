@@ -13,7 +13,7 @@ export function PageHero({
   titleClassName,
   centered = false,
 }: {
-  eyebrow: string;
+  eyebrow?: string;
   title: ReactNode;
   description?: ReactNode;
   supporting?: ReactNode;
@@ -42,7 +42,7 @@ export function PageHero({
         )}
       >
         <div className={cn("space-y-6 pt-2", centered && !supporting && "mx-auto")}>
-          <p className="eyebrow">{eyebrow}</p>
+          {eyebrow ? <p className="eyebrow">{eyebrow}</p> : null}
           <div className="space-y-4">
             <h1
               className={cn(
