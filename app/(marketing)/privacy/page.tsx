@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 import { PageHero } from "@/components/marketing/page-hero";
+import { LEGAL_LAST_UPDATED } from "@/lib/legal";
 import { siteConfig } from "@/lib/site";
 
 const sections = [
@@ -105,14 +106,12 @@ export const metadata: Metadata = {
 };
 
 export default function PrivacyPage() {
-  const lastUpdated = "March 23, 2026";
-
   return (
     <>
       <PageHero
         eyebrow="Privacy Policy"
         title="Privacy Policy"
-        description={`Last updated ${lastUpdated}. This policy applies to the SaySimons website, waitlist, and related pre-launch communications.`}
+        description={`Last updated ${LEGAL_LAST_UPDATED}. This policy applies to the SaySimons website, waitlist, and related pre-launch communications.`}
       />
 
       <section className="section-shell pb-20 pt-6">

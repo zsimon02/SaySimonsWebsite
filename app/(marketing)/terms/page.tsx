@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 import { PageHero } from "@/components/marketing/page-hero";
+import { LEGAL_LAST_UPDATED } from "@/lib/legal";
 import { siteConfig } from "@/lib/site";
 
 const sections = [
@@ -108,14 +109,12 @@ export const metadata: Metadata = {
 };
 
 export default function TermsPage() {
-  const lastUpdated = "March 23, 2026";
-
   return (
     <>
       <PageHero
         eyebrow="Terms of Service"
         title="Terms of Service"
-        description={`Last updated ${lastUpdated}. These terms govern use of the SaySimons website, waitlist, and related pre-launch communications.`}
+        description={`Last updated ${LEGAL_LAST_UPDATED}. These terms govern use of the SaySimons website, waitlist, and related pre-launch communications.`}
       />
 
       <section className="section-shell pb-20 pt-6">

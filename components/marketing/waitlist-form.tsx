@@ -13,7 +13,11 @@ type FormState =
   | { type: "success"; message: string }
   | { type: "error"; message: string };
 
-export function WaitlistForm() {
+type WaitlistFormProps = {
+  sourceDetail: string;
+};
+
+export function WaitlistForm({ sourceDetail }: WaitlistFormProps) {
   const formRef = useRef<HTMLFormElement | null>(null);
   const [formState, setFormState] = useState<FormState>({ type: "idle" });
   const [isPending, startTransition] = useTransition();
@@ -28,6 +32,7 @@ export function WaitlistForm() {
         firstName: String(formData.get("firstName") ?? ""),
         lastName: String(formData.get("lastName") ?? ""),
         email: String(formData.get("email") ?? ""),
+        sourceDetail: String(formData.get("sourceDetail") ?? sourceDetail),
       };
 
       try {
@@ -89,6 +94,7 @@ export function WaitlistForm() {
       </div>
 
       <form ref={formRef} action={handleSubmit} className="mt-8 space-y-5">
+        <input type="hidden" name="sourceDetail" value={sourceDetail} />
         <div className="grid gap-5 sm:grid-cols-2">
           <div className="space-y-2">
             <Label htmlFor="firstName">First name</Label>

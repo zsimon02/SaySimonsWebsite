@@ -1,7 +1,6 @@
-import { promises as fs } from "node:fs";
-import path from "node:path";
-
 import { z } from "zod";
+
+import { getSupabaseAdminClient } from "@/lib/supabase-admin";
 
 export const waitlistSchema = z.object({
   firstName: z
@@ -28,53 +27,40 @@ export const waitlistSchema = z.object({
     .email("Enter a valid email address.")
     .max(254, "Email must be 254 characters or fewer.")
     .transform((value) => value.toLowerCase()),
+  sourceDetail: z.string().trim().min(1).max(120).optional(),
 });
 
 export type WaitlistInput = z.infer<typeof waitlistSchema>;
-
-type WaitlistEntry = WaitlistInput & {
-  id: string;
-  joinedAt: string;
-  source: "website";
+export type StoreWaitlistInput = WaitlistInput & {
+  consentVersion: string;
 };
 
-const waitlistFile = path.join(process.cwd(), "data", "waitlist-submissions.json");
+type StoreWaitlistResult =
+  | { status: "created" }
+  | { status: "duplicate" };
 
-async function readWaitlistFile() {
-  try {
-    const file = await fs.readFile(waitlistFile, "utf8");
-    return JSON.parse(file) as WaitlistEntry[];
-  } catch (error) {
-    if ((error as NodeJS.ErrnoException).code === "ENOENT") {
-      return [];
-    }
-
-    throw error;
-  }
+function isDuplicateEmailError(error: { code?: string } | null) {
+  return error?.code === "23505";
 }
 
-export async function storeWaitlistEntry(input: WaitlistInput) {
-  const entries = await readWaitlistFile();
-  const existing = entries.find((entry) => entry.email === input.email);
+export async function storeWaitlistEntry(input: StoreWaitlistInput): Promise<StoreWaitlistResult> {
+  const supabase = getSupabaseAdminClient();
+  const { error } = await supabase.from("waitlist_entries").insert({
+    first_name: input.firstName,
+    last_name: input.lastName,
+    email: input.email,
+    source: "website",
+    source_detail: input.sourceDetail ?? null,
+    consent_version: input.consentVersion,
+  });
 
-  if (existing) {
-    return { status: "duplicate" as const, entry: existing };
+  if (!error) {
+    return { status: "created" };
   }
 
-  const newEntry: WaitlistEntry = {
-    id: crypto.randomUUID(),
-    firstName: input.firstName,
-    lastName: input.lastName,
-    email: input.email,
-    joinedAt: new Date().toISOString(),
-    source: "website",
-  };
+  if (isDuplicateEmailError(error)) {
+    return { status: "duplicate" };
+  }
 
-  await fs.mkdir(path.dirname(waitlistFile), { recursive: true });
-
-  // TODO: Replace this file-based store with a Supabase insert when the
-  // production backend is ready. The API contract can stay the same.
-  await fs.writeFile(waitlistFile, JSON.stringify([newEntry, ...entries], null, 2));
-
-  return { status: "created" as const, entry: newEntry };
+  throw new Error(`Failed to save waitlist entry: ${error.message}`, { cause: error });
 }

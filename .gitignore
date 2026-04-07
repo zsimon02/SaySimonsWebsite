@@ -16,7 +16,6 @@
 # next.js
 /.next/
 /out/
-/data/waitlist-submissions.json
 
 # production
 /build

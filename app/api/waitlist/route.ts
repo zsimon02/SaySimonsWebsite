@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 
+import { WAITLIST_CONSENT_VERSION } from "@/lib/legal";
 import { storeWaitlistEntry, waitlistSchema } from "@/lib/waitlist";
 
 export async function POST(request: Request) {
@@ -23,7 +24,10 @@ export async function POST(request: Request) {
       );
     }
 
-    const result = await storeWaitlistEntry(parsed.data);
+    const result = await storeWaitlistEntry({
+      ...parsed.data,
+      consentVersion: WAITLIST_CONSENT_VERSION,
+    });
 
     if (result.status === "duplicate") {
       return NextResponse.json({
@@ -39,7 +43,9 @@ export async function POST(request: Request) {
       },
       { status: 201 },
     );
-  } catch {
+  } catch (error) {
+    console.error("Waitlist signup failed.", error);
+
     return NextResponse.json(
       {
         message:

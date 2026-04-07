@@ -42,7 +42,7 @@ export default function JoinPage() {
         </Reveal>
 
         <Reveal>
-          <WaitlistForm />
+          <WaitlistForm sourceDetail="/join" />
         </Reveal>
       </div>
     </section>
