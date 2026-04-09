@@ -8,10 +8,6 @@ export function SiteFooter() {
           <Link href="/" className="headline-display text-3xl font-semibold">
             SaySimons
           </Link>
-          <p className="max-w-xl text-sm leading-7 text-muted-foreground">
-            A personality-driven dating app built to remove ambiguity and help
-            people build real connections.
-          </p>
         </div>
 
         <div className="grid grid-cols-2 gap-4 text-sm text-muted-foreground">

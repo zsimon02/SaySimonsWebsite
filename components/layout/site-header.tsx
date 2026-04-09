@@ -8,7 +8,6 @@ import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
@@ -21,11 +20,13 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-40 bg-[linear-gradient(180deg,rgba(250,252,255,0.84),rgba(250,252,255,0.56)_65%,rgba(250,252,255,0))] backdrop-blur-lg">
       <div className="section-shell flex h-[4.5rem] items-center justify-between gap-6">
-        <Link href="/" className="group flex items-center gap-3">
-          <span className="headline-display text-2xl font-semibold tracking-tight text-foreground">
-            SaySimons
-          </span>
-        </Link>
+        <Button
+          asChild
+          variant="ghost"
+          className="headline-display h-auto px-0 text-2xl font-semibold tracking-tight text-foreground hover:bg-transparent hover:text-foreground"
+        >
+          <Link href="/">SaySimons</Link>
+        </Button>
 
         <nav className="hidden items-center gap-6 md:flex">
           {navigationLinks.map((item) => (
@@ -58,12 +59,15 @@ export function SiteHeader() {
             </DialogTrigger>
             <DialogContent>
               <DialogHeader className="pr-10">
-                <DialogTitle className="headline-display text-3xl">
-                  SaySimons
+                <DialogTitle>
+                  <Button
+                    asChild
+                    variant="ghost"
+                    className="headline-display h-auto px-0 text-3xl font-semibold text-foreground hover:bg-transparent hover:text-foreground"
+                  >
+                    <Link href="/">SaySimons</Link>
+                  </Button>
                 </DialogTitle>
-                <DialogDescription>
-                  A more intentional path from profile to real connection.
-                </DialogDescription>
               </DialogHeader>
               <nav className="mt-8 flex flex-col gap-2">
                 {navigationLinks.map((item) => (
