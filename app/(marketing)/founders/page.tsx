@@ -34,7 +34,7 @@ export default function FoundersPage() {
     <>
       <PageHero
         eyebrow="Founders"
-        title="Built on an understanding of how people connect, supported by thoughtful technology."
+        title="Meet the team"
         shellClassName="w-full px-4 sm:px-8 lg:px-12"
         className="!flex items-center py-20 sm:py-28"
         containerClassName="max-w-[120rem]"
