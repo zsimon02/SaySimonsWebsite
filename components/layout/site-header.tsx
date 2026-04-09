@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Menu } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -15,6 +16,8 @@ import {
 import { navigationLinks } from "@/lib/site";
 
 export function SiteHeader() {
+  const pathname = usePathname();
+
   return (
     <header className="sticky top-0 z-40 bg-[linear-gradient(180deg,rgba(250,252,255,0.84),rgba(250,252,255,0.56)_65%,rgba(250,252,255,0))] backdrop-blur-lg">
       <div className="section-shell flex h-[4.5rem] items-center justify-between gap-6">
@@ -43,7 +46,7 @@ export function SiteHeader() {
         </div>
 
         <div className="md:hidden">
-          <Dialog>
+          <Dialog key={pathname}>
             <DialogTrigger asChild>
               <Button
                 variant="secondary"

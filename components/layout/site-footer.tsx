@@ -14,7 +14,7 @@ export function SiteFooter() {
           </p>
         </div>
 
-        <div className="grid gap-4 text-sm text-muted-foreground sm:grid-cols-2">
+        <div className="grid grid-cols-2 gap-4 text-sm text-muted-foreground">
           <div className="space-y-2">
             <p className="text-xs font-semibold uppercase tracking-[0.16em] text-foreground/80">
               Explore
