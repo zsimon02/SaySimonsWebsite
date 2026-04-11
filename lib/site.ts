@@ -31,7 +31,7 @@ export const featureCards = [
   {
     title: "Better conversations, earlier",
     description:
-      "Structured conversation support helps matches move past endless small talk and into something more honest and alive.",
+      "Structured conversation support helps matches move past endless small talk and into something more honest.",
   },
   {
     title: "Clarity without losing authenticity",

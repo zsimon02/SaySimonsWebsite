@@ -5,7 +5,6 @@ import { FinalCtaSection } from "@/components/marketing/home/final-cta-section";
 import { HeroSection } from "@/components/marketing/home/hero-section";
 import { ProfileToFirstDateSection } from "@/components/marketing/home/profile-to-first-date-section";
 import { ProblemSection } from "@/components/marketing/home/problem-section";
-import { TestimonialsSection } from "@/components/marketing/home/testimonials-section";
 import { TrustSection } from "@/components/marketing/home/trust-section";
 
 export const metadata: Metadata = {
@@ -18,13 +17,12 @@ export default function HomePage() {
       <HeroSection />
       <section className="section-shell py-24 sm:py-28">
         <div className="grid gap-6 xl:grid-cols-2 xl:gap-7">
-          <ProfileToFirstDateSection />
           <ProblemSection />
+          <ProfileToFirstDateSection />
         </div>
       </section>
       <DifferenceSection />
       <TrustSection />
-      <TestimonialsSection />
       <FinalCtaSection />
     </div>
   );

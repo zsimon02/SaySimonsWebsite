@@ -10,9 +10,9 @@ const beliefs = [
       "They should help people understand interest, intent, and compatibility early\u2014so they can move forward with confidence.",
   },
   {
-    title: "Profiles should make people easier to understand.",
+    title: "Profiles should make people easier to understand:",
     description:
-      "When that happens, conversations start with substance instead of performance.",
+      "When that happens, conversations start with substance.",
   },
   {
     title: "Connection is the goal. Time spent on the app isn't.",

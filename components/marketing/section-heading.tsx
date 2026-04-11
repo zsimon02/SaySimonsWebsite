@@ -9,9 +9,9 @@ export function SectionHeading({
   align = "left",
   action,
 }: {
-  eyebrow: string;
+  eyebrow?: ReactNode;
   title: ReactNode;
-  description: ReactNode;
+  description?: ReactNode;
   align?: "left" | "center";
   action?: ReactNode;
 }) {
@@ -22,14 +22,16 @@ export function SectionHeading({
         align === "center" && "mx-auto max-w-3xl items-center text-center",
       )}
     >
-      <span className="eyebrow">{eyebrow}</span>
+      {eyebrow ? <span className="eyebrow">{eyebrow}</span> : null}
       <div className="space-y-3">
         <h2 className="headline-display max-w-3xl text-balance text-[2.35rem] font-semibold leading-[1.02] tracking-tight text-foreground sm:text-5xl">
           {title}
         </h2>
-        <p className="max-w-2xl text-base leading-7 text-muted-foreground sm:text-[1.05rem]">
-          {description}
-        </p>
+        {description ? (
+          <p className="max-w-2xl text-base leading-7 text-muted-foreground sm:text-[1.05rem]">
+            {description}
+          </p>
+        ) : null}
       </div>
       {action}
     </div>

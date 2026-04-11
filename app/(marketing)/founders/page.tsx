@@ -6,22 +6,24 @@ import { Reveal } from "@/components/marketing/reveal";
 
 const story = `Zachary and Hayley are a brother and sister duo who created SaySimons. After watching their older brother struggle with dating apps that felt difficult to interpret, Hayley began to recognize a broader pattern. Many people weren't struggling with connection itself, they were struggling with how little structure existed around expressing interest, reading intent, and understanding one another. What should feel intuitive often turned into guesswork. We lose all nonverbal social cues when we speak online (tone of voice, body language, eye contact). That led her to consider, what if there was an app that helped translate some of this ambiguity to help simulate more of a real world setting?
 
-Hayley called on her tech brother Zach and they immediately got to work. People were left guessing about interest, intent, and compatibility, and they were seeing how ambiguity had become normalized in today. Rather than accept it, he set out to build a product that made those signals easier to understand.`;
+Hayley called on her tech brother Zach and they immediately got to work. Their mission was to create a dating app that did not stop after the initial "match". SaySimons was born to provide that necessary structure to help facilitate positive, productive, and meaningful interactions, while still providing the convenience and ease of doing so through an app.
+
+SaySimons turns modern dating from a guessing game into a clear, confident connection.`;
 
 const founderSections = [
-  {
-    name: "Dr. Hayley Simon",
-    role: "Co-Founder and Behavioral Lead",
-    emphasis: "Behavioral Design",
-    imageSrc: "/images/founders/hayley.jpeg",
-    bio: `Dr. Hayley Simon is a clinical psychologist and behavioral lead behind SaySimons, bringing a research-driven understanding of how people communicate, connect, and build relationships. Her work focuses on helping individuals better understand their emotional patterns, navigate relationships, and communicate with more clarity and intention. Hayley's research throughout school focused on social dynamics, communication patterns, and the ways digital environments influence relationships. At SaySimons, she leads the behavioral design of the product, ensuring that psychological insight is translated into an experience that feels grounded, natural, and genuinely useful.`,
-  },
   {
     name: "Zachary Simon",
     role: "Co-Founder and Technical Lead",
     emphasis: "Product and Engineering",
     imageSrc: "/images/founders/zach.jpeg",
     bio: `Zachary Simon is co-founder and technical lead behind SaySimons, a personality-driven dating platform. With a background in building data-driven systems and automation tools, his work has consistently centered on solving complex, real-world problems through thoughtful, practical technology. Zachary graduated with a degree in computer science, and has a strong foundation in systems and software development. At SaySimons, he now leads both product and engineering, with the goal of creating an experience that turns behavioral insight into something structured, intuitive, and actually useful. He is currently pursuing a Master's of Science in Artificial Intelligence, to continue his focus on how intelligent systems can better help people.`,
+  },
+  {
+    name: "Dr. Hayley Simon",
+    role: "Co-Founder and Behavioral Lead",
+    emphasis: "Behavioral Design",
+    imageSrc: "/images/founders/hayley.jpeg",
+    bio: `Dr. Hayley Simon is a clinical psychologist and behavioral lead behind SaySimons, bringing a research-driven understanding of how people communicate, connect, and build relationships. Her work focuses on helping individuals better understand their emotional patterns, navigate relationships, and communicate with more clarity and intention. Hayley's research throughout school focused on social dynamics, communication patterns, and the ways digital environments influence relationships. At SaySimons, she leads the behavioral design of the product, ensuring that psychological insight is translated into an experience that feels grounded, natural, and genuinely useful.`,
   },
 ] as const;
 

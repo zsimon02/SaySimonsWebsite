@@ -10,7 +10,6 @@ export function TrustSection() {
           <SectionHeading
             eyebrow="Built with psychology and AI"
             title="Trust starts with clear thinking, not inflated claims."
-            description="We do not have a stack of press logos yet, and we are not pretending to. Trust here comes from the people building SaySimons, the philosophy behind it, and the discipline to solve the right problem."
           />
         </Reveal>
 
