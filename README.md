@@ -66,6 +66,8 @@ create table if not exists public.waitlist_entries (
   consent_version text,
   joined_at timestamptz not null default now()
 );
+
+alter table public.waitlist_entries enable row level security;
 ```
 
 If you already created the earlier version of the table, run this instead:
@@ -75,6 +77,8 @@ alter table public.waitlist_entries
   add column if not exists status text not null default 'pending',
   add column if not exists source_detail text,
   add column if not exists consent_version text;
+
+alter table public.waitlist_entries enable row level security;
 ```
 
-The app currently logs `source_detail` as `/join` and writes a single server-side consent version so legal copy updates stay centralized. Duplicate emails are handled by the unique constraint and return the same friendly "already on the waitlist" response as before.
+The app currently logs `source_detail` as `/join` and writes a single server-side consent version so legal copy updates stay centralized. Duplicate emails are handled by the unique constraint and return the same friendly "already on the waitlist" response as before. RLS should stay enabled on this table; inserts still work because the app writes through the server-side Supabase service-role client.
