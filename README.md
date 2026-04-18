@@ -102,3 +102,19 @@ with check (
 ```
 
 The app currently logs `source_detail` as `/join` and writes a single server-side consent version so legal copy updates stay centralized. Duplicate emails are handled by the unique constraint and return the same friendly "already on the waitlist" response as before. RLS should stay enabled on this table; inserts only work when the `anon` role is allowed by policy.
+
+If you hit `new row violates row-level security policy for table "waitlist_entries"`, run this in the Supabase SQL editor for the same project as your `SUPABASE_URL`:
+
+```sql
+alter table public.waitlist_entries enable row level security;
+
+drop policy if exists "Allow public waitlist signups" on public.waitlist_entries;
+
+create policy "Allow public waitlist signups"
+on public.waitlist_entries
+for insert
+to anon
+with check (
+  source = 'website'
+);
+```
