@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-import { getSupabaseAdminClient } from "@/lib/supabase-admin";
+import { getSupabaseServerClient } from "@/lib/supabase-admin";
 
 export const waitlistSchema = z.object({
   firstName: z
@@ -43,8 +43,12 @@ function isDuplicateEmailError(error: { code?: string } | null) {
   return error?.code === "23505";
 }
 
+function isRlsInsertError(error: { code?: string } | null) {
+  return error?.code === "42501";
+}
+
 export async function storeWaitlistEntry(input: StoreWaitlistInput): Promise<StoreWaitlistResult> {
-  const supabase = getSupabaseAdminClient();
+  const supabase = getSupabaseServerClient();
   const { error } = await supabase.from("waitlist_entries").insert({
     first_name: input.firstName,
     last_name: input.lastName,
@@ -60,6 +64,13 @@ export async function storeWaitlistEntry(input: StoreWaitlistInput): Promise<Sto
 
   if (isDuplicateEmailError(error)) {
     return { status: "duplicate" };
+  }
+
+  if (isRlsInsertError(error)) {
+    throw new Error(
+      "Supabase rejected the waitlist insert due to row-level security. Add an insert policy for the publishable key or verify the deployed publishable key belongs to this Supabase project.",
+      { cause: error },
+    );
   }
 
   throw new Error(`Failed to save waitlist entry: ${error.message}`, { cause: error });

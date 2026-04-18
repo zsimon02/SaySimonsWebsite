@@ -33,7 +33,7 @@ Create a local `.env.local` with:
 
 ```bash
 SUPABASE_URL=your-project-url
-SUPABASE_SERVICE_ROLE_KEY=your-service-role-key
+SUPABASE_PUBLISHABLE_KEY=your-publishable-key
 ```
 
 In Vercel, add the same variable names in Project Settings -> Environment Variables. The app only reads `process.env`, so Vercel replaces local `.env.local` automatically at deploy/runtime.
@@ -48,7 +48,7 @@ npm run build
 
 ## Waitlist Flow
 
-The waitlist uses `POST /api/waitlist` with shared Zod validation in [`lib/waitlist.ts`](/c:/Users/Zachary%20Simon/saysimons-website/lib/waitlist.ts). Submissions are written server-side to Supabase through a private service-role client in [`lib/supabase-admin.ts`](/c:/Users/Zachary%20Simon/saysimons-website/lib/supabase-admin.ts), so the browser never sees database credentials.
+The waitlist uses `POST /api/waitlist` with shared Zod validation in [`lib/waitlist.ts`](/c:/Users/Zachary%20Simon/saysimons-website/lib/waitlist.ts). Submissions are written server-side to Supabase through a server client in [`lib/supabase-admin.ts`](/c:/Users/Zachary%20Simon/saysimons-website/lib/supabase-admin.ts) configured with your publishable key, so inserts depend on your table's RLS policy.
 
 Create this table in Supabase before using the form:
 
@@ -68,6 +68,16 @@ create table if not exists public.waitlist_entries (
 );
 
 alter table public.waitlist_entries enable row level security;
+
+drop policy if exists "Allow public waitlist signups" on public.waitlist_entries;
+
+create policy "Allow public waitlist signups"
+on public.waitlist_entries
+for insert
+to anon
+with check (
+  source = 'website'
+);
 ```
 
 If you already created the earlier version of the table, run this instead:
@@ -79,6 +89,16 @@ alter table public.waitlist_entries
   add column if not exists consent_version text;
 
 alter table public.waitlist_entries enable row level security;
+
+drop policy if exists "Allow public waitlist signups" on public.waitlist_entries;
+
+create policy "Allow public waitlist signups"
+on public.waitlist_entries
+for insert
+to anon
+with check (
+  source = 'website'
+);
 ```
 
-The app currently logs `source_detail` as `/join` and writes a single server-side consent version so legal copy updates stay centralized. Duplicate emails are handled by the unique constraint and return the same friendly "already on the waitlist" response as before. RLS should stay enabled on this table; inserts still work because the app writes through the server-side Supabase service-role client.
+The app currently logs `source_detail` as `/join` and writes a single server-side consent version so legal copy updates stay centralized. Duplicate emails are handled by the unique constraint and return the same friendly "already on the waitlist" response as before. RLS should stay enabled on this table; inserts only work when the `anon` role is allowed by policy.
